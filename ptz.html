@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiysha Ihwal Nurhakim - Portofolio</title>
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <style>
+        /* ==========================================
+           1. VARIABEL TEMA & WARNA
+           ========================================== */
+        :root {
+            --bg-color: #000000;       /* Latar hitam pekat */
+            --bg-box: #0ea5e9;         /* Biru Lanyard (Kotak utama) */
+            
+            --text-body: #ffffff;      
+            --text-box: #ffffff;       /* Teks putih dalam kotak biru */
+            --text-heading: #ffffff;   
+            
+            --primary: #0284c7;        
+            --primary-hover: #0369a1;  
+            --border-color: #7dd3fc;   
+        }
+
+        /* ==========================================
+           2. RESET & BASE STYLES
+           ========================================== */
+        /* Ini sangat krusial agar elemen tidak tumpah/tertumpuk di layar HP */
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-body);
+            line-height: 1.6;
+            overflow-x: hidden; /* Mencegah layar bergeser ke kanan-kiri di HP */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', Arial, sans-serif;
+        }
+
+        /* ==========================================
+           3. TATA LETAK UTAMA (LAYOUT)
+           ========================================== */
+        .main-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            gap: 80px; 
+            padding: 0 20px;
+            align-items: flex-start;
+        }
+
+        .container {
+            flex: 1; /* Mengisi sisa ruang di kiri */
+            min-width: 0; /* Mencegah konten meluap keluar layar pada layar kecil */
+        }
+
+        /* ==========================================
+           4. KOMPONEN KOTAK (BOX)
+           ========================================== */
+        .box {
+            background-color: var(--bg-box);
+            color: var(--text-box);
+            padding: 30px 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .box h2 {
+            font-size: 1.4rem;
+            color: var(--text-heading);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Header Profil Spesifik */
+        .header-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .header-info h1 {
+            margin: 0 0 8px 0;
+            color: var(--text-heading);
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+
+        .header-info p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #e0f2fe;
+            font-weight: 500;
+        }
+
+        .animation-container {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================
+           5. KOMPONEN DALAM KOTAK (INNER CARDS & TAGS)
+           ========================================== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Grup Keahlian agar menempel mulus dan tidak kebesaran */
+        .skills-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden; /* Supaya ujung-ujungnya tetap membulat rapi */
+        }
+
+        .skills-group .inner-card {
+            border: none;
+            border-right: 1px solid var(--border-color);
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .skills-group .inner-card:last-child {
+            border-right: none;
+        }
+
+        .inner-card {
+            background-color: #ffffff; 
+            color: #334155; 
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inner-card h3 {
+            margin: 0 0 10px 0;
+            color: #0f172a; 
+            font-size: 1.1rem;
+        }
+
+        .inner-card p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            flex-grow: 1; /* Mendorong tag ke bawah agar terlihat sejajar */
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f8ff; 
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           6. PANEL KANAN (LANYARD)
+           ========================================== */
+        .right-panel {
+            width: 320px;
+            flex-shrink: 0; /* Mencegah panel kanan menyusut otomatis */
+            background-color: var(--bg-box);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: sticky;
+            top: 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-panel h3 {
+            color: #ffffff;
+            margin: 0 0 15px 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: auto; /* Mengikuti tinggi asli gambar */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Menampilkan foto seutuhnya tanpa memotong */
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* ==========================================
+           7. TOMBOL KONTAK
+           ========================================== */
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-align: center;
+            flex: 1; /* Tombol memenuhi ruang secara merata */
+        }
+
+        .btn:hover {
+            background-color: #f0f8ff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ==========================================
+           8. RESPONSIVE DESIGN (HANDPHONE & TABLET)
+           ========================================== */
+        @media (max-width: 900px) {
+            .main-wrapper { 
+                flex-direction: column; 
+                gap: 30px; /* Jarak antar panel dikurangi di layar vertikal */
+                margin: 30px auto;
+            }
+            
+            .right-panel { 
+                width: 100%; 
+                position: static; 
+            }
+            
+            .photo-placeholder {
+                height: auto;
+                min-height: 300px; /* Menyesuaikan tinggi foto pada HP */
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Merapikan padding kotak agar tidak terlalu sempit di HP */
+            .box { 
+                padding: 25px 20px; 
+            }
+            
+            /* Profil menjadi vertikal */
+            .header-box { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+            }
+            
+            .animation-container { 
+                margin-bottom: 15px; 
+            }
+            
+            .header-info h1 {
+                font-size: 1.8rem; /* Huruf sedikit dikecilkan di layar sempit */
+            }
+            
+            /* Grid proyek/keahlian menjadi 1 kolom bertumpuk rapi */
+            .grid-2, .skills-group { 
+                grid-template-columns: 1fr; 
+            }
+            
+            /* Supaya garis pembatas keahlian di HP menjadi horizontal, bukan vertikal */
+            .skills-group .inner-card {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .skills-group .inner-card:last-child {
+                border-bottom: none;
+            }
+            
+            /* Tombol susun atas-bawah */
+            .contact-links { 
+                flex-direction: column; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <!-- KIRI: Konten Portofolio Utama -->
+        <div class="container">
+            
+            <!-- Bagian 1: Profil & Header -->
+            <div class="box header-box">
+                <div class="header-info">
+                    <h1>Reiysha Ihwal Nurhakim</h1>
+                    <p>TKJ Specialist & Tech Enthusiast</p>
+                </div>
+                <div class="animation-container">
+                    <lottie-player 
+                        src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 100%; height: 100%;" 
+                        loop 
+                        autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+
+            <!-- Bagian 2: Tentang Saya -->
+            <div class="box">
+                <h2>Tentang Saya</h2>
+                <p>Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (troubleshooting) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.</p>
+            </div>
+
+            <!-- Bagian 3: Keahlian Utama -->
+            <div class="box">
+                <h2>Keahlian</h2>
+                
+                <div class="skills-group">
+                    <div class="inner-card">
+                        <h3>Networking & Router</h3>
+                        <p>Konfigurasi Mikrotik (Firewall, DHCP, Access Point), serta analisis keamanan lalu lintas jaringan tingkat lanjut.</p>
+                        <div class="tags">
+                            <span class="tag">Mikrotik</span>
+                            <span class="tag">RouterOS</span>
+                            <span class="tag">Firewall</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card">
+                        <h3>Hardware Troubleshooting</h3>
+                        <p>Analisis kerusakan, perbaikan komponen, dan pembongkaran perangkat PC maupun laptop secara presisi dan aman.</p>
+                        <div class="tags">
+                            <span class="tag">PC Assembly</span>
+                            <span class="tag">Hardware Repair</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card">
+                        <h3>Data & System Recovery</h3>
+                        <p>Pemulihan data dari RAW drive atau bad sector menggunakan perangkat lunak khusus, serta perbaikan struktur OS.</p>
+                        <div class="tags">
+                            <span class="tag">PhotoRec</span>
+                            <span class="tag">Data Recovery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian 4: Proyek & Pengalaman -->
+            <div class="box">
+                <h2>Proyek & Pengalaman</h2>
+                <div class="grid-2">
+                    <div class="inner-card">
+                        <h3>Keamanan Jaringan Layer 7</h3>
+                        <p>Mengatur dan menerapkan aturan firewall ketat serta pemblokiran protokol Layer 7 pada Mikrotik Router untuk mencegah akses jaringan lokal dari trafik tidak diinginkan.</p>
+                    </div>
+                    
+                    <div class="inner-card">
+                        <h3>Pemulihan Penyimpanan (Deep Recovery)</h3>
+                        <p>Berhasil memulihkan file database penting dari penyimpanan eksternal yang mengalami kerusakan sistem file secara menyeluruh tanpa data loss.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian 5: Kontak -->
+            <div class="box">
+                <h2>Mari Terhubung</h2>
+                <p>Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
+                <br>
+                <div class="contact-links">
+                    <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn">Kirim Email</a>
+                    <a href="https://wa.me/6282298390727" class="btn">Chat WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- KANAN: Panel ID Card / Lanyard -->
+        <div class="right-panel">
+            <h3>My self</h3>
+            <div class="photo-placeholder">
+                <img src="profil.jpeg" alt="Foto Profil">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
