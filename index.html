@@ -212,8 +212,8 @@
            ========================================== */
         .skills-group {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .grid-2 {
@@ -238,6 +238,7 @@
             box-shadow: var(--shadow-hard);
         }
 
+        .inner-card.bg-yellow { background-color: var(--accent-yellow); }
         .inner-card.bg-cyan { background-color: var(--accent-cyan); }
         .inner-card.bg-green { background-color: var(--accent-green); }
         .inner-card.bg-purple { background-color: var(--accent-purple); }
@@ -524,7 +525,7 @@
                 <div class="skills-group">
                     <div class="inner-card bg-cyan">
                         <h3>🌐 Networking & Router</h3>
-                        <p>Konfigurasi Mikrotik (Firewall, DHCP, Access Point), serta analisis keamanan lalu lintas jaringan tingkat lanjut.</p>
+                        <p>Konfigurasi Mikrotik (Firewall, DHCP, Access Point), manajemen bandwidth, serta analisis keamanan lalu lintas jaringan tingkat lanjut.</p>
                         <div class="tags">
                             <span class="tag">Mikrotik</span>
                             <span class="tag">RouterOS</span>
@@ -532,21 +533,34 @@
                         </div>
                     </div>
 
+                    <div class="inner-card bg-yellow">
+                        <h3>📹 Instalasi Sistem CCTV</h3>
+                        <p>Pemasangan IP Camera & Analog (NVR/DVR), penarikan kabel LAN/Coaxial rapi dengan pipa conduit/cable tray, crimping, serta konfigurasi monitoring online.</p>
+                        <div class="tags">
+                            <span class="tag">IP Camera</span>
+                            <span class="tag">NVR / DVR</span>
+                            <span class="tag">Cable Routing</span>
+                            <span class="tag">Remote View</span>
+                        </div>
+                    </div>
+
                     <div class="inner-card bg-green">
-                        <h3>🛠️ Hardware Repair</h3>
-                        <p>Analisis kerusakan, perbaikan komponen, dan pembongkaran perangkat PC maupun laptop secara presisi dan aman.</p>
+                        <h3>🛠️ Hardware & Maintenance</h3>
+                        <p>Analisis kerusakan, perbaikan komponen, pembersihan berkala, dan perakitan perangkat PC maupun laptop secara presisi dan aman.</p>
                         <div class="tags">
                             <span class="tag">PC Assembly</span>
                             <span class="tag">Hardware Repair</span>
+                            <span class="tag">Troubleshooting</span>
                         </div>
                     </div>
 
                     <div class="inner-card bg-purple">
-                        <h3>💾 Data & Recovery</h3>
-                        <p>Pemulihan data dari RAW drive atau bad sector menggunakan perangkat lunak khusus, serta perbaikan struktur OS.</p>
+                        <h3>💾 Data & System Recovery</h3>
+                        <p>Pemulihan file data dari RAW drive atau bad sector menggunakan perangkat lunak khusus, serta perbaikan sistem operasi (OS).</p>
                         <div class="tags">
                             <span class="tag">PhotoRec</span>
                             <span class="tag">Data Recovery</span>
+                            <span class="tag">OS Repair</span>
                         </div>
                     </div>
                 </div>
@@ -559,6 +573,16 @@
                     <h2 class="section-title">Proyek & Pengalaman</h2>
                 </div>
                 <div class="grid-2">
+                    <div class="inner-card bg-yellow">
+                        <h3>🏢 Instalasi CCTV Perkantoran (Office Deployment)</h3>
+                        <p>Pemasangan sistem CCTV multi-titik di area perkantoran dengan penataan kabel terstruktur (menggunakan pipa conduit & cable tray rapi). Konfigurasi NVR, IP statis, dan integrasi pemantauan jarak jauh via smartphone & laptop.</p>
+                    </div>
+                    
+                    <div class="inner-card bg-green">
+                        <h3>🚢 Instalasi CCTV Kapal Laut (Marine Standard)</h3>
+                        <p>Pemasangan kamera CCTV standar pelayaran (weatherproof/anti-korosi) di armada kapal. Penarikan kabel aman dan terlindung dari cuaca laut ekstrem, serta setup ruang kendali terpusat di anjungan (bridge room) untuk pengawasan ruang mesin & dek.</p>
+                    </div>
+
                     <div class="inner-card bg-orange">
                         <h3>🛡️ Keamanan Jaringan Layer 7</h3>
                         <p>Mengatur dan menerapkan aturan firewall ketat serta pemblokiran protokol Layer 7 pada Mikrotik Router untuk mencegah akses jaringan lokal dari trafik tidak diinginkan.</p>
