@@ -5,49 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reiysha Ihwal Nurhakim - Portofolio</title>
     
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     
     <style>
         /* ==========================================
-           1. VARIABEL TEMA & WARNA
+           1. VARIABEL TEMA NEO-BRUTALISM
            ========================================== */
         :root {
-            --bg-color: #000000;       /* Latar hitam pekat */
-            --bg-box: #0ea5e9;         /* Biru Lanyard (Kotak utama) */
+            --bg-canvas: #FAF7F2;
+            --border-dark: #000000;
+            --border-width: 3px;
+            --border-width-sm: 2px;
+            --shadow-hard: 5px 5px 0px #000000;
+            --shadow-hard-lg: 8px 8px 0px #000000;
+            --shadow-hard-sm: 3px 3px 0px #000000;
+            --shadow-hard-xs: 2px 2px 0px #000000;
             
-            --text-body: #ffffff;      
-            --text-box: #ffffff;       /* Teks putih dalam kotak biru */
-            --text-heading: #ffffff;   
+            /* Neo-brutalist Color Accents */
+            --accent-yellow: #FFE600;
+            --accent-cyan: #A6FAFF;
+            --accent-green: #86EFAC;
+            --accent-pink: #FFB5C5;
+            --accent-purple: #E9D5FF;
+            --accent-orange: #FED7AA;
+            --card-white: #FFFFFF;
             
-            --primary: #0284c7;        
-            --primary-hover: #0369a1;  
-            --border-color: #7dd3fc;   
+            --text-dark: #000000;
+            --text-muted: #374151;
+            
+            --radius-md: 12px;
+            --radius-sm: 8px;
         }
 
         /* ==========================================
            2. RESET & BASE STYLES
            ========================================== */
-        /* Ini sangat krusial agar elemen tidak tumpah/tertumpuk di layar HP */
         *, *::before, *::after {
-            box-sizing: border-box; 
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-body);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background-color: var(--bg-canvas);
+            background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+            color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden; /* Mencegah layar bergeser ke kanan-kiri di HP */
+            overflow-x: hidden;
+            padding: 40px 16px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', Arial, sans-serif;
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
         }
 
         /* ==========================================
@@ -55,119 +75,194 @@
            ========================================== */
         .main-wrapper {
             display: flex;
-            max-width: 1200px;
-            margin: 50px auto;
-            gap: 80px; 
-            padding: 0 20px;
+            max-width: 1180px;
+            margin: 0 auto;
+            gap: 36px;
             align-items: flex-start;
         }
 
         .container {
-            flex: 1; /* Mengisi sisa ruang di kiri */
-            min-width: 0; /* Mencegah konten meluap keluar layar pada layar kecil */
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
 
         /* ==========================================
-           4. KOMPONEN KOTAK (BOX)
+           4. NEO-BRUTALIST BOXES & CARDS
            ========================================== */
-        .box {
-            background-color: var(--bg-box);
-            color: var(--text-box);
-            padding: 30px 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        .neo-box {
+            background-color: var(--card-white);
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard);
+            padding: 32px;
+            position: relative;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
-        .box h2 {
-            font-size: 1.4rem;
-            color: var(--text-heading);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-            margin-top: 0;
+        .neo-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-hard-lg);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: var(--border-width) solid var(--border-dark);
         }
 
-        /* Header Profil Spesifik */
+        .section-badge {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           5. HERO / PROFILE HEADER BOX
+           ========================================== */
         .header-box {
+            background-color: var(--accent-yellow);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 24px;
+            position: relative;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffffff;
+            border: var(--border-width-sm) solid var(--border-dark);
+            box-shadow: var(--shadow-hard-xs);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-dark);
+            display: inline-block;
+            box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
         }
 
         .header-info h1 {
-            margin: 0 0 8px 0;
-            color: var(--text-heading);
-            font-size: 2.2rem;
-            line-height: 1.2;
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .header-info p {
-            margin: 0;
+        .header-info p.subtitle {
             font-size: 1.1rem;
-            color: #e0f2fe;
-            font-weight: 500;
+            font-weight: 700;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            display: inline-block;
+            padding: 6px 14px;
+            border: var(--border-width-sm) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-xs);
         }
 
         .animation-container {
             width: 140px;
             height: 140px;
             flex-shrink: 0;
+            background-color: #ffffff;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
         }
 
         /* ==========================================
-           5. KOMPONEN DALAM KOTAK (INNER CARDS & TAGS)
+           6. SKILLS & PROJECTS GRIDS
            ========================================== */
+        .skills-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        /* Grup Keahlian agar menempel mulus dan tidak kebesaran */
-        .skills-group {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden; /* Supaya ujung-ujungnya tetap membulat rapi */
-        }
-
-        .skills-group .inner-card {
-            border: none;
-            border-right: 1px solid var(--border-color);
-            border-radius: 0;
-            margin: 0;
-        }
-
-        .skills-group .inner-card:last-child {
-            border-right: none;
-        }
-
         .inner-card {
-            background-color: #ffffff; 
-            color: #334155; 
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 8px;
+            background-color: #ffffff;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-sm);
+            padding: 22px;
             display: flex;
             flex-direction: column;
+            transition: all 0.15s ease;
         }
 
+        .inner-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .inner-card.bg-cyan { background-color: var(--accent-cyan); }
+        .inner-card.bg-green { background-color: var(--accent-green); }
+        .inner-card.bg-purple { background-color: var(--accent-purple); }
+        .inner-card.bg-orange { background-color: var(--accent-orange); }
+        .inner-card.bg-pink { background-color: var(--accent-pink); }
+
         .inner-card h3 {
-            margin: 0 0 10px 0;
-            color: #0f172a; 
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .inner-card p {
-            margin: 0 0 15px 0;
             font-size: 0.95rem;
-            flex-grow: 1; /* Mendorong tag ke bawah agar terlihat sejajar */
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            flex-grow: 1;
+            line-height: 1.55;
         }
 
+        /* Tags */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -175,143 +270,206 @@
         }
 
         .tag {
-            background-color: #f0f8ff; 
-            color: var(--primary);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            border: 2px solid var(--border-dark);
+            box-shadow: 2px 2px 0px var(--border-dark);
             padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
         }
 
         /* ==========================================
-           6. PANEL KANAN (LANYARD)
+           7. BUTTONS & CONTACT LINKS
+           ========================================== */
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            box-shadow: var(--shadow-hard);
+            transition: all 0.12s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-yellow {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+        }
+
+        .btn-green {
+            background-color: var(--accent-green);
+            color: var(--text-dark);
+        }
+
+        .btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-hard-lg);
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: var(--shadow-hard-xs);
+        }
+
+        /* ==========================================
+           8. RIGHT PANEL (ID PASS / LANYARD BADGE)
            ========================================== */
         .right-panel {
             width: 320px;
-            flex-shrink: 0; /* Mencegah panel kanan menyusut otomatis */
-            background-color: var(--bg-box);
-            border-radius: 12px;
-            padding: 25px;
+            flex-shrink: 0;
+            background-color: var(--card-white);
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard-lg);
+            padding: 26px 22px;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: sticky;
-            top: 50px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            top: 40px;
+            text-align: center;
         }
 
-        .right-panel h3 {
-            color: #ffffff;
-            margin: 0 0 15px 0;
-            font-size: 1.2rem;
-            text-align: center;
+        .id-badge-clip {
+            width: 54px;
+            height: 12px;
+            background-color: #e5e7eb;
+            border: 2px solid var(--border-dark);
+            border-radius: 20px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .badge-tag-label {
+            background-color: var(--accent-cyan);
+            border: 2px solid var(--border-dark);
+            box-shadow: var(--shadow-hard-xs);
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: inline-block;
         }
 
         .photo-placeholder {
             width: 100%;
-            height: auto; /* Mengikuti tinggi asli gambar */
-            border-radius: 8px;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-sm);
+            background-color: var(--accent-yellow);
+            overflow: hidden;
+            margin-bottom: 16px;
+            min-height: 240px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: transparent;
-            padding: 0;
         }
 
         .photo-placeholder img {
             width: 100%;
             height: auto;
-            object-fit: contain; /* Menampilkan foto seutuhnya tanpa memotong */
-            border-radius: 8px;
             display: block;
+            object-fit: cover;
         }
 
-        /* ==========================================
-           7. TOMBOL KONTAK
-           ========================================== */
-        .contact-links {
+        .id-card-footer {
+            width: 100%;
+            border-top: 2px dashed var(--border-dark);
+            padding-top: 14px;
+            margin-top: 8px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.8rem;
+            font-weight: 800;
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #ffffff;
-            color: var(--primary);
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            text-align: center;
-            flex: 1; /* Tombol memenuhi ruang secara merata */
-        }
-
-        .btn:hover {
-            background-color: #f0f8ff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .barcode-sim {
+            font-family: monospace;
+            letter-spacing: 2px;
+            font-weight: 900;
+            background: #000000;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
         }
 
         /* ==========================================
-           8. RESPONSIVE DESIGN (HANDPHONE & TABLET)
+           9. RESPONSIVE DESIGN (HP & TABLET)
            ========================================== */
-        @media (max-width: 900px) {
-            .main-wrapper { 
-                flex-direction: column; 
-                gap: 30px; /* Jarak antar panel dikurangi di layar vertikal */
-                margin: 30px auto;
+        @media (max-width: 960px) {
+            .main-wrapper {
+                flex-direction: column;
+                gap: 30px;
             }
-            
-            .right-panel { 
-                width: 100%; 
-                position: static; 
+
+            .right-panel {
+                width: 100%;
+                position: static;
+                max-width: 420px;
+                margin: 0 auto;
             }
-            
-            .photo-placeholder {
-                height: auto;
-                min-height: 300px; /* Menyesuaikan tinggi foto pada HP */
+
+            .skills-group {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 600px) {
-            /* Merapikan padding kotak agar tidak terlalu sempit di HP */
-            .box { 
-                padding: 25px 20px; 
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 12px;
             }
-            
-            /* Profil menjadi vertikal */
-            .header-box { 
-                flex-direction: column-reverse; 
-                text-align: center; 
+
+            .neo-box {
+                padding: 22px 18px;
             }
-            
-            .animation-container { 
-                margin-bottom: 15px; 
+
+            .header-box {
+                flex-direction: column-reverse;
+                text-align: center;
             }
-            
+
             .header-info h1 {
-                font-size: 1.8rem; /* Huruf sedikit dikecilkan di layar sempit */
+                font-size: 1.8rem;
             }
-            
-            /* Grid proyek/keahlian menjadi 1 kolom bertumpuk rapi */
-            .grid-2, .skills-group { 
-                grid-template-columns: 1fr; 
+
+            .grid-2 {
+                grid-template-columns: 1fr;
             }
-            
-            /* Supaya garis pembatas keahlian di HP menjadi horizontal, bukan vertikal */
-            .skills-group .inner-card {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
+
+            .contact-links {
+                flex-direction: column;
             }
-            
-            .skills-group .inner-card:last-child {
-                border-bottom: none;
-            }
-            
-            /* Tombol susun atas-bawah */
-            .contact-links { 
-                flex-direction: column; 
+
+            .animation-container {
+                width: 110px;
+                height: 110px;
             }
         }
     </style>
@@ -324,10 +482,14 @@
         <div class="container">
             
             <!-- Bagian 1: Profil & Header -->
-            <div class="box header-box">
+            <div class="neo-box header-box">
                 <div class="header-info">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span>Available for Work & Collab</span>
+                    </div>
                     <h1>Reiysha Ihwal Nurhakim</h1>
-                    <p>TKJ Specialist & Tech Enthusiast</p>
+                    <p class="subtitle">⚡ TKJ Specialist & Tech Enthusiast</p>
                 </div>
                 <div class="animation-container">
                     <lottie-player 
@@ -342,18 +504,26 @@
             </div>
 
             <!-- Bagian 2: Tentang Saya -->
-            <div class="box">
-                <h2>Tentang Saya</h2>
-                <p>Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (troubleshooting) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.</p>
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">01</span>
+                    <h2 class="section-title">Tentang Saya</h2>
+                </div>
+                <p style="font-size: 1.05rem; font-weight: 500; line-height: 1.7;">
+                    Saya adalah seorang penggiat di bidang <strong>Teknik Komputer dan Jaringan</strong> yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (<em>troubleshooting</em>) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.
+                </p>
             </div>
 
             <!-- Bagian 3: Keahlian Utama -->
-            <div class="box">
-                <h2>Keahlian</h2>
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">02</span>
+                    <h2 class="section-title">Keahlian Utama</h2>
+                </div>
                 
                 <div class="skills-group">
-                    <div class="inner-card">
-                        <h3>Networking & Router</h3>
+                    <div class="inner-card bg-cyan">
+                        <h3>🌐 Networking & Router</h3>
                         <p>Konfigurasi Mikrotik (Firewall, DHCP, Access Point), serta analisis keamanan lalu lintas jaringan tingkat lanjut.</p>
                         <div class="tags">
                             <span class="tag">Mikrotik</span>
@@ -362,8 +532,8 @@
                         </div>
                     </div>
 
-                    <div class="inner-card">
-                        <h3>Hardware Troubleshooting</h3>
+                    <div class="inner-card bg-green">
+                        <h3>🛠️ Hardware Repair</h3>
                         <p>Analisis kerusakan, perbaikan komponen, dan pembongkaran perangkat PC maupun laptop secara presisi dan aman.</p>
                         <div class="tags">
                             <span class="tag">PC Assembly</span>
@@ -371,8 +541,8 @@
                         </div>
                     </div>
 
-                    <div class="inner-card">
-                        <h3>Data & System Recovery</h3>
+                    <div class="inner-card bg-purple">
+                        <h3>💾 Data & Recovery</h3>
                         <p>Pemulihan data dari RAW drive atau bad sector menggunakan perangkat lunak khusus, serta perbaikan struktur OS.</p>
                         <div class="tags">
                             <span class="tag">PhotoRec</span>
@@ -383,29 +553,34 @@
             </div>
 
             <!-- Bagian 4: Proyek & Pengalaman -->
-            <div class="box">
-                <h2>Proyek & Pengalaman</h2>
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">03</span>
+                    <h2 class="section-title">Proyek & Pengalaman</h2>
+                </div>
                 <div class="grid-2">
-                    <div class="inner-card">
-                        <h3>Keamanan Jaringan Layer 7</h3>
+                    <div class="inner-card bg-orange">
+                        <h3>🛡️ Keamanan Jaringan Layer 7</h3>
                         <p>Mengatur dan menerapkan aturan firewall ketat serta pemblokiran protokol Layer 7 pada Mikrotik Router untuk mencegah akses jaringan lokal dari trafik tidak diinginkan.</p>
                     </div>
                     
-                    <div class="inner-card">
-                        <h3>Pemulihan Penyimpanan (Deep Recovery)</h3>
+                    <div class="inner-card bg-pink">
+                        <h3>🗄️ Pemulihan Penyimpanan (Deep Recovery)</h3>
                         <p>Berhasil memulihkan file database penting dari penyimpanan eksternal yang mengalami kerusakan sistem file secara menyeluruh tanpa data loss.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Bagian 5: Kontak -->
-            <div class="box">
-                <h2>Mari Terhubung</h2>
-                <p>Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
-                <br>
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">04</span>
+                    <h2 class="section-title">Mari Terhubung</h2>
+                </div>
+                <p style="font-size: 1.05rem; font-weight: 500;">Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
                 <div class="contact-links">
-                    <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn">Kirim Email</a>
-                    <a href="https://wa.me/6282298390727" class="btn">Chat WhatsApp</a>
+                    <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn btn-yellow">✉️ Kirim Email</a>
+                    <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="btn btn-green">💬 Chat WhatsApp</a>
                 </div>
             </div>
 
@@ -413,9 +588,16 @@
 
         <!-- KANAN: Panel ID Card / Lanyard -->
         <div class="right-panel">
-            <h3>My photo</h3>
+            <div class="id-badge-clip"></div>
+            <span class="badge-tag-label">★ ID PASS // VERIFIED</span>
             <div class="photo-placeholder">
-                <img src="profil.jpeg" alt="Foto Profil">
+                <img src="profil.jpeg" alt="Foto Profil" onerror="this.onerror=null; this.parentElement.style.padding='40px 20px'; this.parentElement.innerHTML='<div style=\'font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.1rem;color:#000;\'>📷 Foto Profil<br><span style=\'font-size:0.8rem;font-weight:600;color:#333;\'>profil.jpeg</span></div>';">
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 4px; text-transform: uppercase;">Reiysha I. N.</h3>
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 14px;">TKJ SPECIALIST</p>
+            <div class="id-card-footer">
+                <span>PASSPORT #2026-TKJ</span>
+                <span class="barcode-sim">|||| ||| |||||</span>
             </div>
         </div>
 
