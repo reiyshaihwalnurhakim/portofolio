@@ -1,0 +1,772 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiysha Ihwal Nurhakim - Portofolio</title>
+    
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <style>
+        /* ==========================================
+           1. VARIABEL TEMA NEO-BRUTALISM
+           ========================================== */
+        :root {
+            --bg-canvas: #FAF7F2;
+            --border-dark: #000000;
+            --border-width: 3px;
+            --border-width-sm: 2px;
+            --shadow-hard: 5px 5px 0px #000000;
+            --shadow-hard-lg: 8px 8px 0px #000000;
+            --shadow-hard-sm: 3px 3px 0px #000000;
+            --shadow-hard-xs: 2px 2px 0px #000000;
+            
+            /* Neo-brutalist Color Accents */
+            --accent-yellow: #FFE600;
+            --accent-cyan: #A6FAFF;
+            --accent-green: #86EFAC;
+            --accent-pink: #FFB5C5;
+            --accent-purple: #E9D5FF;
+            --accent-orange: #FED7AA;
+            --card-white: #FFFFFF;
+            
+            --text-dark: #000000;
+            --text-muted: #374151;
+            
+            --radius-md: 12px;
+            --radius-sm: 8px;
+        }
+
+        /* ==========================================
+           2. RESET & BASE STYLES
+           ========================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background-color: var(--bg-canvas);
+            background-image: radial-gradient(#000000 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 40px 16px;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+        }
+
+        /* ==========================================
+           3. TATA LETAK UTAMA (LAYOUT)
+           ========================================== */
+        .main-wrapper {
+            display: flex;
+            max-width: 1180px;
+            margin: 0 auto;
+            gap: 36px;
+            align-items: flex-start;
+        }
+
+        .container {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* ==========================================
+           4. NEO-BRUTALIST BOXES & CARDS
+           ========================================== */
+        .neo-box {
+            background-color: var(--card-white);
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard);
+            padding: 32px;
+            position: relative;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .neo-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-hard-lg);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: var(--border-width) solid var(--border-dark);
+        }
+
+        .section-badge {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           5. HERO / PROFILE HEADER BOX
+           ========================================== */
+        .header-box {
+            background-color: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            position: relative;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ffffff;
+            border: var(--border-width-sm) solid var(--border-dark);
+            box-shadow: var(--shadow-hard-xs);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            border: 1.5px solid var(--border-dark);
+            display: inline-block;
+            box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+        }
+
+        .header-info h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .header-info p.subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            display: inline-block;
+            padding: 6px 14px;
+            border: var(--border-width-sm) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-xs);
+        }
+
+        .animation-container {
+            width: 140px;
+            height: 140px;
+            flex-shrink: 0;
+            background-color: #ffffff;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        /* ==========================================
+           6. SKILLS & PROJECTS GRIDS
+           ========================================== */
+        .skills-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .inner-card {
+            background-color: #ffffff;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-sm);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.15s ease;
+        }
+
+        .inner-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .inner-card.bg-yellow { background-color: var(--accent-yellow); }
+        .inner-card.bg-cyan { background-color: var(--accent-cyan); }
+        .inner-card.bg-green { background-color: var(--accent-green); }
+        .inner-card.bg-purple { background-color: var(--accent-purple); }
+        .inner-card.bg-orange { background-color: var(--accent-orange); }
+        .inner-card.bg-pink { background-color: var(--accent-pink); }
+
+        .inner-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .inner-card p {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            flex-grow: 1;
+            line-height: 1.55;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            border: 2px solid var(--border-dark);
+            box-shadow: 2px 2px 0px var(--border-dark);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================
+           6.5 DEVICE MENU (ACCORDION)
+           ========================================== */
+        .device-menu {
+            background-color: var(--card-white);
+            border: var(--border-width-sm) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-hard-xs);
+            transition: all 0.15s ease;
+        }
+
+        .device-menu:hover {
+            box-shadow: var(--shadow-hard-sm);
+            transform: translate(-1px, -1px);
+        }
+
+        .device-menu summary {
+            padding: 16px 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: var(--radius-sm);
+            border-bottom: 2px solid transparent; /* placeholder */
+        }
+
+        .device-menu:nth-of-type(1) summary { background-color: var(--accent-cyan); }
+        .device-menu:nth-of-type(2) summary { background-color: var(--accent-yellow); }
+        .device-menu:nth-of-type(3) summary { background-color: var(--accent-orange); }
+        .device-menu:nth-of-type(4) summary { background-color: var(--accent-purple); }
+
+        .device-menu summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .device-menu summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .device-menu[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: var(--border-width-sm) solid var(--border-dark);
+        }
+
+        .device-menu[open] summary::after {
+            content: '-';
+        }
+
+        .device-menu .menu-content {
+            padding: 18px 20px;
+            background-color: var(--card-white);
+            border-bottom-left-radius: var(--radius-sm);
+            border-bottom-right-radius: var(--radius-sm);
+        }
+
+        .device-menu .menu-content ul {
+            list-style-type: square;
+            padding-left: 24px;
+            margin: 0;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .device-menu .menu-content ul li {
+            margin-bottom: 8px;
+        }
+
+        /* ==========================================
+           7. BUTTONS & CONTACT LINKS
+           ========================================== */
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            box-shadow: var(--shadow-hard);
+            transition: all 0.12s ease;
+            flex: 1;
+            text-align: center;
+        }
+
+        .btn-yellow {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+        }
+
+        .btn-green {
+            background-color: var(--accent-green);
+            color: var(--text-dark);
+        }
+
+        .btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-hard-lg);
+        }
+
+        .btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: var(--shadow-hard-xs);
+        }
+
+        /* ==========================================
+           8. RIGHT PANEL (ID PASS / LANYARD BADGE)
+           ========================================== */
+        .right-panel {
+            width: 320px;
+            flex-shrink: 0;
+            background-color: var(--card-white);
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-hard-lg);
+            padding: 26px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: sticky;
+            top: 40px;
+            text-align: center;
+        }
+
+        .id-badge-clip {
+            width: 54px;
+            height: 12px;
+            background-color: #e5e7eb;
+            border: 2px solid var(--border-dark);
+            border-radius: 20px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .badge-tag-label {
+            background-color: var(--accent-cyan);
+            border: 2px solid var(--border-dark);
+            box-shadow: var(--shadow-hard-xs);
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            border: var(--border-width) solid var(--border-dark);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-hard-sm);
+            background-color: var(--accent-yellow);
+            overflow: hidden;
+            margin-bottom: 16px;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .id-card-footer {
+            width: 100%;
+            border-top: 2px dashed var(--border-dark);
+            padding-top: 14px;
+            margin-top: 8px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.8rem;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .barcode-sim {
+            font-family: monospace;
+            letter-spacing: 2px;
+            font-weight: 900;
+            background: #000000;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* ==========================================
+           9. RESPONSIVE DESIGN (HP & TABLET)
+           ========================================== */
+        @media (max-width: 960px) {
+            .main-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .right-panel {
+                width: 100%;
+                position: static;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .skills-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .neo-box {
+                padding: 22px 18px;
+            }
+
+            .header-box {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .header-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .animation-container {
+                width: 110px;
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <!-- KIRI: Konten Portofolio Utama -->
+        <div class="container">
+            
+            <!-- Bagian 1: Profil & Header -->
+            <div class="neo-box header-box">
+                <div class="header-info">
+                    <div class="status-pill">
+                        <span class="status-dot"></span>
+                        <span>Available for Work & Collab</span>
+                    </div>
+                    <h1>Reiysha Ihwal Nurhakim</h1>
+                    <p class="subtitle">ΓÜí TKJ Specialist & Tech Enthusiast</p>
+                </div>
+                <div class="animation-container">
+                    <lottie-player 
+                        src="https://assets3.lottiefiles.com/packages/lf20_w51pcehl.json" 
+                        background="transparent" 
+                        speed="1" 
+                        style="width: 100%; height: 100%;" 
+                        loop 
+                        autoplay>
+                    </lottie-player>
+                </div>
+            </div>
+
+            <!-- Bagian 2: Tentang Saya -->
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">01</span>
+                    <h2 class="section-title">Tentang Saya</h2>
+                </div>
+                <p style="font-size: 1.05rem; font-weight: 500; line-height: 1.7;">
+                    Saya adalah seorang penggiat di bidang <strong>Teknik Komputer dan Jaringan</strong> yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (<em>troubleshooting</em>) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.
+                </p>
+            </div>
+
+            <!-- Bagian 3: Keahlian Utama -->
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">02</span>
+                    <h2 class="section-title">Keahlian Utama</h2>
+                </div>
+                
+                <div class="skills-group">
+                    <div class="inner-card bg-cyan">
+                        <h3>≡ƒîÉ Networking & Router</h3>
+                        <p>Konfigurasi Mikrotik (Firewall, DHCP, Access Point), manajemen bandwidth, serta analisis keamanan lalu lintas jaringan tingkat lanjut.</p>
+                        <div class="tags">
+                            <span class="tag">Mikrotik</span>
+                            <span class="tag">RouterOS</span>
+                            <span class="tag">Firewall</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card bg-yellow">
+                        <h3>≡ƒô╣ Instalasi Sistem CCTV</h3>
+                        <p>Pemasangan IP Camera & Analog (NVR/DVR), penarikan kabel LAN/Coaxial rapi dengan pipa conduit/cable tray, crimping, serta konfigurasi monitoring online.</p>
+                        <div class="tags">
+                            <span class="tag">IP Camera</span>
+                            <span class="tag">NVR / DVR</span>
+                            <span class="tag">Cable Routing</span>
+                            <span class="tag">Remote View</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card bg-green">
+                        <h3>≡ƒ¢á∩╕Å Hardware & Maintenance</h3>
+                        <p>Analisis kerusakan, perbaikan komponen, pembersihan berkala, dan perakitan perangkat PC maupun laptop secara presisi dan aman.</p>
+                        <div class="tags">
+                            <span class="tag">PC Assembly</span>
+                            <span class="tag">Hardware Repair</span>
+                            <span class="tag">Troubleshooting</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card bg-purple">
+                        <h3>≡ƒÆ╛ Data & System Recovery</h3>
+                        <p>Pemulihan file data dari RAW drive atau bad sector menggunakan perangkat lunak khusus, serta perbaikan sistem operasi (OS).</p>
+                        <div class="tags">
+                            <span class="tag">PhotoRec</span>
+                            <span class="tag">Data Recovery</span>
+                            <span class="tag">OS Repair</span>
+                        </div>
+                    </div>
+
+                    <div class="inner-card bg-orange">
+                        <h3>≡ƒû¿∩╕Å Memperbaiki Printer</h3>
+                        <p>Troubleshooting dan perbaikan berbagai jenis printer, mencakup hardware mekanik maupun error software.</p>
+                        <div class="tags">
+                            <span class="tag">Printer Repair</span>
+                            <span class="tag">Hardware</span>
+                            <span class="tag">Software</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian Katalog Perangkat -->
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">03</span>
+                    <h2 class="section-title">Katalog Perangkat</h2>
+                </div>
+                <p style="font-size: 1.05rem; font-weight: 500; margin-bottom: 20px;">Daftar jenis barang yang biasa ditangani (Klik untuk melihat detail):</p>
+                
+                <details class="device-menu">
+                    <summary>Router OS & Networking</summary>
+                    <div class="menu-content">
+                        <ul>
+                            <li>Mikrotik RouterBoard (RB951, RB750, dll)</li>
+                            <li>Mikrotik Cloud Core Router (CCR)</li>
+                            <li>Access Point (Ubiquiti, TP-Link, Cisco)</li>
+                            <li>Switch Manageable & Unmanageable</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="device-menu">
+                    <summary>CCTV & Keamanan</summary>
+                    <div class="menu-content">
+                        <ul>
+                            <li>DVR & NVR Systems</li>
+                            <li>IP Camera & Analog Camera</li>
+                            <li>Kamera PTZ (Pan-Tilt-Zoom)</li>
+                            <li>Kabel Coaxial & UTP untuk CCTV</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="device-menu">
+                    <summary>Printer</summary>
+                    <div class="menu-content">
+                        <ul>
+                            <li>Printer Epson</li>
+                            <li>Printer Canon</li>
+                        </ul>
+                    </div>
+                </details>
+                
+                <details class="device-menu">
+                    <summary>Komputer & Laptop</summary>
+                    <div class="menu-content">
+                        <ul>
+                            <li>Motherboard & Processor (Intel/AMD)</li>
+                            <li>RAM & Penyimpanan (SSD, HDD, NVMe)</li>
+                            <li>Power Supply Unit (PSU) & VGA</li>
+                            <li>LCD/LED Panel & Keyboard Laptop</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Bagian 4: Proyek & Pengalaman -->
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">04</span>
+                    <h2 class="section-title">Proyek & Pengalaman</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="inner-card bg-yellow">
+                        <h3>≡ƒÅó Instalasi CCTV Perkantoran (Office Deployment)</h3>
+                        <p>Pemasangan sistem CCTV multi-titik di area perkantoran dengan penataan kabel terstruktur (menggunakan pipa conduit & cable tray rapi). Konfigurasi NVR, IP statis, dan integrasi pemantauan jarak jauh via smartphone & laptop.</p>
+                    </div>
+                    
+                    <div class="inner-card bg-green">
+                        <h3>≡ƒÜó Instalasi CCTV Kapal Laut (Marine Standard)</h3>
+                        <p>Pemasangan kamera CCTV standar pelayaran (weatherproof/anti-korosi) di armada kapal. Penarikan kabel aman dan terlindung dari cuaca laut ekstrem, serta setup ruang kendali terpusat di anjungan (bridge room) untuk pengawasan ruang mesin & dek.</p>
+                    </div>
+
+                    <div class="inner-card bg-orange">
+                        <h3>≡ƒ¢í∩╕Å Keamanan Jaringan Layer 7</h3>
+                        <p>Mengatur dan menerapkan aturan firewall ketat serta pemblokiran protokol Layer 7 pada Mikrotik Router untuk mencegah akses jaringan lokal dari trafik tidak diinginkan.</p>
+                    </div>
+                    
+                    <div class="inner-card bg-pink">
+                        <h3>≡ƒùä∩╕Å Pemulihan Penyimpanan (Deep Recovery)</h3>
+                        <p>Berhasil memulihkan file database penting dari penyimpanan eksternal yang mengalami kerusakan sistem file secara menyeluruh tanpa data loss.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bagian 5: Kontak -->
+            <div class="neo-box">
+                <div class="section-header">
+                    <span class="section-badge">05</span>
+                    <h2 class="section-title">Mari Terhubung</h2>
+                </div>
+                <p style="font-size: 1.05rem; font-weight: 500;">Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
+                <div class="contact-links">
+                    <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn btn-yellow">Γ£ë∩╕Å Kirim Email</a>
+                    <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="btn btn-green">≡ƒÆ¼ Chat WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- KANAN: Panel ID Card / Lanyard -->
+        <div class="right-panel">
+            <div class="id-badge-clip"></div>
+            <span class="badge-tag-label">Γÿà ID PASS // VERIFIED</span>
+            <div class="photo-placeholder">
+                <img src="profil.jpeg" alt="Foto Profil" onerror="this.onerror=null; this.parentElement.style.padding='40px 20px'; this.parentElement.innerHTML='<div style=\'font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.1rem;color:#000;\'>≡ƒô╖ Foto Profil<br><span style=\'font-size:0.8rem;font-weight:600;color:#333;\'>profil.jpeg</span></div>';">
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 4px; text-transform: uppercase;">Reiysha I. N.</h3>
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 14px;">TKJ SPECIALIST</p>
+            <div class="id-card-footer">
+                <span>PASSPORT #2026-TKJ</span>
+                <span class="barcode-sim">|||| ||| |||||</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
