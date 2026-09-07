@@ -450,6 +450,22 @@
             color: var(--text-dark);
         }
 
+        .btn-cyan { background-color: var(--accent-cyan); color: var(--text-dark); }
+        .btn-purple { background-color: var(--accent-purple); color: var(--text-dark); }
+        .btn-pink { background-color: var(--accent-pink); color: var(--text-dark); }
+
+        .btn-social {
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 14px;
+            min-width: 130px;
+        }
+
+        .btn-social .icon {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+
         .btn:hover {
             transform: translate(-3px, -3px);
             box-shadow: var(--shadow-hard-lg);
@@ -676,11 +692,21 @@
                     </div>
                     <p style="font-size: 1.05rem; font-weight: 500;">Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
                     <div class="contact-links" style="flex-wrap: wrap;">
-                        <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn btn-yellow">✉️ Kirim Email</a>
-                        <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="btn btn-green">💬 Chat WhatsApp</a>
-                        <a href="https://github.com/reiyshaihwalnurhakim" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--accent-cyan); color: var(--text-dark);">🐙 GitHub</a>
-                        <a href="https://www.linkedin.com/in/reiysha-ihwal-nurhakim-292949430" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--accent-purple); color: var(--text-dark);">💼 LinkedIn</a>
-                        <a href="https://www.instagram.com/reiy_shaa" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--accent-pink); color: var(--text-dark);">📸 Instagram</a>
+                        <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="btn btn-yellow btn-social">
+                            <span class="icon">✉️</span> Kirim Email
+                        </a>
+                        <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="btn btn-green btn-social">
+                            <span class="icon">💬</span> Chat WhatsApp
+                        </a>
+                        <a href="https://github.com/reiyshaihwalnurhakim" target="_blank" rel="noopener noreferrer" class="btn btn-cyan btn-social">
+                            <span class="icon">🐙</span> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/reiysha-ihwal-nurhakim-292949430" target="_blank" rel="noopener noreferrer" class="btn btn-purple btn-social">
+                            <span class="icon">💼</span> LinkedIn
+                        </a>
+                        <a href="https://www.instagram.com/reiy_shaa" target="_blank" rel="noopener noreferrer" class="btn btn-pink btn-social">
+                            <span class="icon">📸</span> Instagram
+                        </a>
                     </div>
                 </div>
             </div>
