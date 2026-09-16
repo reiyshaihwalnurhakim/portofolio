@@ -44,69 +44,112 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .page-section { display: none; }
+        .page-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white">
 
-    <!-- Floating Navigation (Burger Menu Only) -->
-    <nav class="fixed w-full z-50 py-4 px-6 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <!-- Top Navigation -->
+    <nav class="fixed w-full z-40 py-4 px-6 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#home" class="text-xl font-bold text-dark tracking-tight hover:text-primary transition-colors duration-300">Reiysha Ihwal Nurhakim</a>
+            <a href="#" onclick="showPage('home')" class="text-xl font-bold text-dark tracking-tight hover:text-primary transition-colors duration-300">Reiysha Ihwal Nurhakim</a>
             
-            <!-- Burger Button (Visible on all screens) -->
-            <button id="menu-btn" type="button" aria-expanded="false" aria-label="Menu"
+            <!-- Burger Button -->
+            <button id="menu-btn" type="button" aria-label="Menu"
                     class="p-2 -mr-2 rounded-lg hover:bg-gray-100 text-gray-700 transition-colors focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
-        
-        <!-- Dropdown Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200">
-            <div class="max-w-6xl mx-auto flex flex-col p-6 space-y-3">
-                <a href="#home" class="nav-link block px-6 py-4 text-center rounded-xl bg-gray-50 border border-gray-100 text-base font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Beranda</a>
-                <a href="#skills" class="nav-link block px-6 py-4 text-center rounded-xl bg-gray-50 border border-gray-100 text-base font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Keahlian</a>
-                <a href="#experience" class="nav-link block px-6 py-4 text-center rounded-xl bg-gray-50 border border-gray-100 text-base font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Pengalaman</a>
-                <a href="#projects" class="nav-link block px-6 py-4 text-center rounded-xl bg-gray-50 border border-gray-100 text-base font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Proyek</a>
-                <a href="#contact" class="nav-link block px-6 py-4 text-center rounded-xl bg-gray-50 border border-gray-100 text-base font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Kontak</a>
-            </div>
-        </div>
     </nav>
 
-    <main>
-        <!-- Section: Home (Hero) -->
-        <section id="home" class="hero-pattern min-h-screen flex items-center justify-center pt-20 px-6">
-            <div class="max-w-3xl mx-auto text-center">
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/30 z-40 hidden transition-opacity opacity-0 backdrop-blur-sm"></div>
+
+    <!-- Sidebar Menu (Left) -->
+    <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-6 flex justify-between items-center border-b border-gray-100">
+            <span class="font-bold text-lg text-dark">Menu Navigasi</span>
+            <button id="close-menu-btn" class="p-2 rounded-lg hover:bg-gray-100 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="p-6 flex flex-col space-y-4">
+            <a href="#" onclick="showPage('home')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Beranda</a>
+            <a href="#" onclick="showPage('skills')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Keahlian</a>
+            <a href="#" onclick="showPage('experience')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Pengalaman</a>
+            <a href="#" onclick="showPage('projects')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Proyek</a>
+            <a href="#" onclick="showPage('contact')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Kontak</a>
+        </div>
+    </div>
+
+    <main class="pt-20">
+        <!-- Section: Home (Beranda) -->
+        <section id="home" class="page-section active hero-pattern min-h-screen px-6 pb-20">
+            <div class="max-w-4xl mx-auto text-center pt-10">
                 <div class="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 font-medium text-sm mb-6 border border-green-200">
                     <span class="inline-block w-2 h-2 rounded-full bg-primary mr-2 animate-pulse"></span>
                     Available for Work & Collab
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-dark tracking-tight mb-6 leading-tight">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark tracking-tight mb-6 leading-tight">
                     Halo, Saya <span class="text-primary">Reiysha!</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 font-medium mb-8">
+                <p class="text-xl text-gray-600 font-medium mb-8">
                     TKJ Specialist & Tech Enthusiast
                 </p>
-                <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (<em>troubleshooting</em>) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.
+                <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan. Portofolio ini merangkum sebagian besar karya dan pengalaman teknis saya.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#contact" class="bg-primary text-white px-8 py-3.5 rounded-lg font-medium hover:bg-secondary transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Mari Terhubung</a>
-                    <a href="#skills" class="bg-white border border-gray-200 text-gray-700 px-8 py-3.5 rounded-lg font-medium hover:bg-gray-50 transition-all shadow-sm">Lihat Keahlian</a>
+                
+                <!-- Galeri Foto Proyek Singkat di Beranda -->
+                <h2 class="text-2xl font-bold text-dark mb-6 text-left">Sekilas Proyek Saya</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer" onclick="showPage('projects')">
+                        <div class="h-48 bg-gray-200 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary/10 flex items-center justify-center text-primary font-bold group-hover:scale-110 transition-transform duration-500">📷 [Foto CCTV/Jaringan]</div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-dark group-hover:text-primary transition-colors">Instalasi Server</h3>
+                            <p class="text-gray-500 text-sm mt-2">Penyusunan rak server dan manajemen kabel.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer" onclick="showPage('projects')">
+                        <div class="h-48 bg-gray-200 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-primary/10 flex items-center justify-center text-primary font-bold group-hover:scale-110 transition-transform duration-500">📷 [Foto Komputer/Hardware]</div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-dark group-hover:text-primary transition-colors">Perakitan PC</h3>
+                            <p class="text-gray-500 text-sm mt-2">Troubleshooting dan pemeliharaan perangkat keras.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <button onclick="showPage('projects')" class="bg-white border border-gray-200 text-gray-700 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all shadow-sm">
+                        Lihat Proyek Lainnya
+                    </button>
                 </div>
             </div>
         </section>
 
         <!-- Section: Skills -->
-        <section id="skills" class="py-24 px-6 bg-white">
+        <section id="skills" class="page-section py-10 px-6 bg-white min-h-screen">
             <div class="max-w-6xl mx-auto">
-                <div class="mb-16 text-center">
+                <div class="mb-12 text-center">
                     <h2 class="text-3xl font-bold text-dark mb-4">Keahlian Utama</h2>
                     <p class="text-gray-500 max-w-2xl mx-auto">Berbagai layanan dan kompetensi teknis yang saya kuasai.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Skill 1 -->
                     <div class="bg-gray-50 border border-gray-100 rounded-2xl p-8 hover:shadow-md transition-shadow group">
                         <h3 class="text-xl font-bold text-dark mb-3">Networking & Router</h3>
@@ -137,9 +180,9 @@
         </section>
 
         <!-- Section: Experience -->
-        <section id="experience" class="py-24 px-6 bg-gray-50 border-y border-gray-100">
+        <section id="experience" class="page-section py-10 px-6 bg-gray-50 min-h-screen">
             <div class="max-w-4xl mx-auto">
-                <div class="mb-16 text-center">
+                <div class="mb-12 text-center">
                     <h2 class="text-3xl font-bold text-dark mb-4">Pengalaman Kerja</h2>
                     <p class="text-gray-500">Rekam jejak dan implementasi langsung di lapangan.</p>
                 </div>
@@ -178,26 +221,26 @@
         </section>
 
         <!-- Section: Projects -->
-        <section id="projects" class="py-24 px-6 bg-white">
+        <section id="projects" class="page-section py-10 px-6 bg-white min-h-screen">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-12 text-center">
-                    <h2 class="text-3xl font-bold text-dark mb-4">Kumpulan Proyek</h2>
-                    <p class="text-gray-500">Karya dan hasil pengembangan saya.</p>
+                    <h2 class="text-3xl font-bold text-dark mb-4">Kumpulan Proyek Lengkap</h2>
+                    <p class="text-gray-500">Galeri hasil karya dan instalasi teknis.</p>
                 </div>
                 
                 <div class="max-w-2xl mx-auto text-center border-2 border-dashed border-gray-200 rounded-2xl py-20 px-8 bg-gray-50/50">
                     <div class="text-4xl mb-4">🚧</div>
-                    <p class="text-2xl font-semibold text-dark mb-3">Segera Hadir</p>
-                    <p class="text-gray-500 max-w-md mx-auto">Bagian ini sedang disiapkan sebagai wadah untuk menyimpan dan memamerkan proyek pengembangan serta karya buatan saya di masa depan.</p>
+                    <p class="text-2xl font-semibold text-dark mb-3">Masih Kosong</p>
+                    <p class="text-gray-500 max-w-md mx-auto">Silakan tambahkan foto-foto proyek Anda nantinya ke dalam halaman ini.</p>
                 </div>
             </div>
         </section>
 
         <!-- Section: Contact -->
-        <section id="contact" class="py-24 px-6 bg-dark text-white">
-            <div class="max-w-4xl mx-auto text-center">
+        <section id="contact" class="page-section py-20 px-6 bg-dark text-white min-h-screen flex flex-col justify-center">
+            <div class="max-w-4xl mx-auto text-center w-full">
                 <h2 class="text-3xl font-bold mb-6">Mari Terhubung</h2>
-                <p class="text-gray-400 mb-12 max-w-xl mx-auto">Punya proyek menarik atau pertanyaan teknis? Jangan ragu untuk menghubungi saya melalui kontak dan sosial media di bawah ini.</p>
+                <p class="text-gray-400 mb-12 max-w-xl mx-auto">Punya pertanyaan teknis atau ingin berkolaborasi? Hubungi saya melalui tautan di bawah.</p>
                 
                 <div class="flex flex-wrap justify-center gap-3 mb-16">
                     <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
@@ -224,28 +267,47 @@
         </section>
     </main>
 
-    <!-- Script for Burger Menu Logic -->
+    <!-- Script for SPA Navigation & Sidebar -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
 
-            // Toggle menu on button click
-            menuBtn.addEventListener('click', () => {
-                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-                menuBtn.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-            });
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+        }
 
-            // Close menu when clicking any link
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                });
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+        }
+
+        menuBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
             });
-        });
+            // Show requested page
+            const target = document.getElementById(pageId);
+            if(target) {
+                target.classList.add('active');
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            // Close sidebar
+            closeSidebar();
+            
+            // Prevent default anchor link behavior if called from onclick
+            if(event) event.preventDefault();
+        }
     </script>
 </body>
 </html>
