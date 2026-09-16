@@ -73,8 +73,8 @@
     <!-- Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/30 z-40 hidden transition-opacity opacity-0 backdrop-blur-sm"></div>
 
-    <!-- Sidebar Menu (Left) -->
-    <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- Sidebar Menu (Right) -->
+    <div id="sidebar" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-6 flex justify-between items-center border-b border-gray-100">
             <span class="font-bold text-lg text-dark">Menu Navigasi</span>
             <button id="close-menu-btn" class="p-2 rounded-lg hover:bg-gray-100 text-gray-500">
@@ -88,7 +88,6 @@
             <a href="#" onclick="showPage('skills')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Keahlian</a>
             <a href="#" onclick="showPage('experience')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Pengalaman</a>
             <a href="#" onclick="showPage('projects')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Proyek</a>
-            <a href="#" onclick="showPage('contact')" class="nav-link block px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 font-semibold text-gray-700 hover:text-primary hover:border-primary/30 hover:bg-green-50/50 transition-all">Kontak</a>
         </div>
     </div>
 
@@ -106,8 +105,8 @@
                 <p class="text-xl text-gray-600 font-medium mb-8">
                     TKJ Specialist & Tech Enthusiast
                 </p>
-                <p class="text-lg text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                    Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan. Portofolio ini merangkum sebagian besar karya dan pengalaman teknis saya.
+                <p class="text-lg text-gray-500 mb-20 max-w-2xl mx-auto leading-relaxed">
+                    Saya adalah seorang penggiat di bidang Teknik Komputer dan Jaringan yang sangat antusias terhadap teknologi. Saya senang memecahkan masalah teknis (<em>troubleshooting</em>) dan terus mengeksplorasi pengelolaan sistem jaringan, perangkat keras, hingga keamanan data.
                 </p>
                 
                 <!-- Galeri Foto Proyek Singkat di Beranda -->
@@ -236,36 +235,37 @@
             </div>
         </section>
 
-        <!-- Section: Contact -->
-        <section id="contact" class="page-section py-20 px-6 bg-dark text-white min-h-screen flex flex-col justify-center">
-            <div class="max-w-4xl mx-auto text-center w-full">
-                <h2 class="text-3xl font-bold mb-6">Mari Terhubung</h2>
-                <p class="text-gray-400 mb-12 max-w-xl mx-auto">Punya pertanyaan teknis atau ingin berkolaborasi? Hubungi saya melalui tautan di bawah.</p>
-                
-                <div class="flex flex-wrap justify-center gap-3 mb-16">
-                    <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                        Email
-                    </a>
-                    <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                        WhatsApp
-                    </a>
-                    <a href="https://github.com/reiyshaihwalnurhakim" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/reiysha-ihwal-nurhakim-292949430" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                        LinkedIn
-                    </a>
-                    <a href="https://www.instagram.com/reiy_shaa" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                        Instagram
-                    </a>
-                </div>
-                
-                <div class="pt-8 border-t border-gray-800 text-gray-500 text-sm">
-                    &copy; 2026 Reiysha Ihwal Nurhakim. All rights reserved.
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- Global Footer: Contact -->
+    <footer id="contact" class="py-12 px-6 bg-dark text-white">
+        <div class="max-w-4xl mx-auto text-center w-full">
+            <h2 class="text-3xl font-bold mb-6">Mari Terhubung</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">Punya pertanyaan teknis atau ingin berkolaborasi? Hubungi saya melalui tautan di bawah.</p>
+            
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <a href="mailto:reiyshaihwalnurhakim@gmail.com" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+                    Email
+                </a>
+                <a href="https://wa.me/6282298390727" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+                    WhatsApp
+                </a>
+                <a href="https://github.com/reiyshaihwalnurhakim" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/reiysha-ihwal-nurhakim-292949430" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+                    LinkedIn
+                </a>
+                <a href="https://www.instagram.com/reiy_shaa" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/10 px-5 py-2.5 rounded-lg text-sm font-medium transition-colors">
+                    Instagram
+                </a>
+            </div>
+            
+            <div class="pt-6 border-t border-gray-800 text-gray-500 text-sm">
+                &copy; 2026 Reiysha Ihwal Nurhakim. All rights reserved.
+            </div>
+        </div>
+    </footer>
 
     <!-- Script for SPA Navigation & Sidebar -->
     <script>
@@ -275,13 +275,13 @@
         const closeBtn = document.getElementById('close-menu-btn');
 
         function openSidebar() {
-            sidebar.classList.remove('-translate-x-full');
+            sidebar.classList.remove('translate-x-full');
             overlay.classList.remove('hidden');
             setTimeout(() => overlay.classList.remove('opacity-0'), 10);
         }
 
         function closeSidebar() {
-            sidebar.classList.add('-translate-x-full');
+            sidebar.classList.add('translate-x-full');
             overlay.classList.add('opacity-0');
             setTimeout(() => overlay.classList.add('hidden'), 300);
         }
