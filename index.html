@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reiysha Ihwal Nurhakim | TKJ Enthusiast</title>
+    <title>Reiysha Ihwal Nurhakim | TKJ Specialist</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,10 @@
                         surface: '#000000',
                         card: '#141414',
                         border: 'rgba(255,255,255,0.12)',
-                        accent: '#dd0e45',
+                        accent: '#2563eb',
                         't1': 'rgba(255,255,255,0.96)',
                         't2': 'rgba(255,255,255,0.56)',
-                        't3': 'rgba(255,255,255,0.55)',
+                        't3': 'rgba(255,255,255,0.38)',
                     }
                 }
             }
@@ -62,16 +62,58 @@
             background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
         }
 
-        /* Scroll reveal animation */
+        /* Scroll reveal and entrance animations */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
+            transition: opacity 1.2s ease, transform 1.2s ease;
         }
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes scaleUpFade {
+            from { opacity: 0; transform: scale(0.85) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-hero {
+            animation: scaleUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 200ms; }
+        .delay-200 { animation-delay: 400ms; }
+        .delay-300 { animation-delay: 600ms; }
 
         /* Project card image area */
         .project-img {
@@ -96,9 +138,9 @@
         .nav-float a:hover {
             color: rgba(255,255,255,0.96);
         }
-        .nav-float a.active-nav {
-            color: #ffffff !important;
-            background-color: rgba(255,255,255,0.15) !important;
+        .nav-float .active-nav, #mob-nav-panel .active-nav {
+            color: #ffffff;
+            background-color: #2563eb; /* Accent color to indicate active menu */
         }
 
         /* Section divider */
@@ -107,13 +149,6 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 30%, rgba(255,255,255,0.08) 70%, transparent);
         }
-
-        /* Keyboard Accessibility Focus (R-32) */
-        a:focus-visible, button:focus-visible, input:focus-visible {
-            outline: 2px solid rgba(255, 255, 255, 0.8);
-            outline-offset: 4px;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-white min-h-screen relative overflow-x-hidden">
@@ -121,10 +156,10 @@
     <!-- Top Blurred Avatar Sphere -->
     <div class="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none z-0 flex flex-col items-center justify-end pb-8 opacity-80">
         <!-- Outer Glow -->
-        <div class="absolute inset-0 rounded-full bg-gradient-to-b from-white/5 to-white/10 blur-[60px]"></div>
+        <div class="absolute inset-0 rounded-full bg-blue-600/20 blur-[60px]"></div>
         <!-- Disguised avatar shape (head and shoulders) -->
-        <div class="w-32 h-32 rounded-full bg-white/20 blur-[30px] mb-2 relative z-10"></div>
-        <div class="w-64 h-40 rounded-t-[200px] bg-white/10 blur-[30px] relative z-10"></div>
+        <div class="w-32 h-32 rounded-full bg-blue-500/30 blur-[30px] mb-2 relative z-10"></div>
+        <div class="w-64 h-40 rounded-t-[200px] bg-blue-500/20 blur-[30px] relative z-10"></div>
     </div>
 
     <!-- Decorative lines top -->
@@ -181,17 +216,17 @@
         <section id="home" class="flex flex-col items-center justify-center min-h-screen px-6 scroll-mt-24">
             <div class="max-w-[800px] mx-auto text-center flex flex-col items-center gap-6 pt-40 pb-32">
                 
-                <p class="text-t3 text-sm font-medium tracking-widest uppercase">Available for work</p>
+                <p class="animate-hero text-t3 text-sm font-medium tracking-widest uppercase">Available for work</p>
 
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-t1 leading-[1.1] tracking-tight">
+                <h1 class="animate-hero delay-100 text-5xl sm:text-6xl md:text-7xl font-bold text-t1 leading-[1.1] tracking-tight">
                     Reiysha Ihwal<br>Nurhakim
                 </h1>
 
-                <p class="text-xl sm:text-2xl text-t2 font-light max-w-lg leading-relaxed">
-                    TKJ Enthusiast | Troubleshoot Hardware | Install CCTV systems | Configure  MikroTik networks.
+                <p class="animate-hero delay-200 text-xl sm:text-2xl text-t2 font-light max-w-lg leading-relaxed">
+                    TKJ Specialist. I troubleshoot Hardware, Install CCTV systems, and configure MikroTik networks.
                 </p>
 
-                <div class="flex gap-4 mt-6">
+                <div class="animate-hero delay-300 flex gap-4 mt-6">
                     <a href="#projects" class="bg-white text-black px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors">
                         View Projects
                     </a>
@@ -205,10 +240,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mt-12 text-left">
                     <div class="group">
                         <div class="project-img rounded-2xl h-52 flex items-center justify-center mb-5">
-                            <span class="text-t3 text-sm font-medium">[ Laptop Configuration Photo ]</span>
+                            <span class="text-t3 text-sm font-medium">[ Virtual Server Photo ]</span>
                         </div>
-                        <h3 class="text-t1 font-semibold text-lg">Laptop Configuration </h3>
-                        <p class="text-t3 text-sm mt-1">Troubleshooting and configuration of laptop hardware and software.</p>
+                        <h3 class="text-t1 font-semibold text-lg">Virtual Server Installation</h3>
+                        <p class="text-t3 text-sm mt-1">Deploying and configuring virtual machines (VMware/Proxmox).</p>
                     </div>
                     <div class="group">
                         <div class="project-img rounded-2xl h-52 flex items-center justify-center mb-5">
@@ -226,24 +261,24 @@
             <div class="max-w-[800px] mx-auto w-full pt-32 pb-20">
                 <h2 class="text-4xl md:text-5xl font-bold text-t1 tracking-tight mb-16">Skills</h2>
                 
-                <div class="space-y-0">
-                    <div class="py-8 border-b border-border group">
+                <div class="space-y-0 overflow-hidden">
+                    <div class="py-8 border-b border-border group reveal-left">
                         <h3 class="text-xl font-semibold text-t1 mb-3">Networking & Router</h3>
                         <p class="text-t2 leading-relaxed">MikroTik configuration (Firewall, DHCP, Access Point), bandwidth management, and advanced network traffic security analysis.</p>
                     </div>
-                    <div class="py-8 border-b border-border group">
+                    <div class="py-8 border-b border-border group reveal-left">
                         <h3 class="text-xl font-semibold text-t1 mb-3">CCTV System</h3>
                         <p class="text-t2 leading-relaxed">Installation of IP & Analog Cameras, neat LAN/Coaxial cable pulling, crimping, and online monitoring configuration.</p>
                     </div>
-                    <div class="py-8 border-b border-border group">
+                    <div class="py-8 border-b border-border group reveal-left">
                         <h3 class="text-xl font-semibold text-t1 mb-3">Hardware Maintenance</h3>
                         <p class="text-t2 leading-relaxed">Damage analysis, component repair, periodic cleaning, and precise, safe assembly of PCs and laptops.</p>
                     </div>
-                    <div class="py-8 border-b border-border group">
+                    <div class="py-8 border-b border-border group reveal-left">
                         <h3 class="text-xl font-semibold text-t1 mb-3">Data Recovery</h3>
                         <p class="text-t2 leading-relaxed">Data file recovery from RAW drives or bad sectors using specialized software, and Operating System (OS) repair.</p>
                     </div>
-                    <div class="py-8 border-b border-border group">
+                    <div class="py-8 border-b border-border group reveal-left">
                         <h3 class="text-xl font-semibold text-t1 mb-3">Printer Repair</h3>
                         <p class="text-t2 leading-relaxed">Troubleshooting and repair of various types of printers, including mechanical hardware and software errors.</p>
                     </div>
@@ -256,8 +291,8 @@
             <div class="max-w-[800px] mx-auto w-full pt-32 pb-20">
                 <h2 class="text-4xl md:text-5xl font-bold text-t1 tracking-tight mb-16">Experience</h2>
                 
-                <div class="space-y-12">
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+                <div class="space-y-12 overflow-hidden">
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-12 reveal-right">
                         <div class="md:w-48 shrink-0">
                             <span class="text-t3 text-sm font-medium">Field Work</span>
                         </div>
@@ -267,9 +302,9 @@
                         </div>
                     </div>
 
-                    <div class="section-divider"></div>
+                    <div class="section-divider reveal"></div>
 
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-12 reveal-right">
                         <div class="md:w-48 shrink-0">
                             <span class="text-t3 text-sm font-medium">Maritime</span>
                         </div>
@@ -279,9 +314,9 @@
                         </div>
                     </div>
 
-                    <div class="section-divider"></div>
+                    <div class="section-divider reveal"></div>
 
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-12 reveal-right">
                         <div class="md:w-48 shrink-0">
                             <span class="text-t3 text-sm font-medium">Security</span>
                         </div>
@@ -291,9 +326,9 @@
                         </div>
                     </div>
 
-                    <div class="section-divider"></div>
+                    <div class="section-divider reveal"></div>
 
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-12">
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-12 reveal-right">
                         <div class="md:w-48 shrink-0">
                             <span class="text-t3 text-sm font-medium">Recovery</span>
                         </div>
@@ -314,14 +349,14 @@
                 <div class="flex flex-col gap-8 reveal">
                     <a href="https://projectweborganisasi-tl.vercel.app/" target="_blank" class="project-img rounded-2xl h-64 md:h-[400px] flex items-center justify-center relative overflow-hidden group/img">
                         <div class="absolute inset-0 bg-[#0a0a0a] transition-transform duration-700 group-hover/img:scale-105 flex flex-col items-center justify-center">
-                            <h3 class="text-3xl md:text-4xl font-bold text-t1 mb-3">Web Organization TL</h3>
+                            <h3 class="text-3xl md:text-4xl font-bold text-t1 mb-3">Web Organisasi TL</h3>
                             <span class="text-accent text-sm font-medium tracking-widest uppercase">Live Preview ↗</span>
                         </div>
                     </a>
                     <div class="flex flex-col md:flex-row justify-between items-start gap-6">
                         <div class="max-w-md">
-                            <h3 class="text-2xl font-semibold text-t1 mb-3">Web Organization TL</h3>
-                            <p class="text-t2 leading-relaxed">Landing page for an organization featuring a clean interface, organized structure, and modern, responsive design.</p>
+                            <h3 class="text-2xl font-semibold text-t1 mb-3">Web Organisasi TL</h3>
+                            <p class="text-t2 leading-relaxed">Website untuk manajemen organisasi dengan antarmuka yang bersih, struktur rapi, dan desain responsif modern.</p>
                         </div>
                         <div class="flex flex-wrap gap-3 shrink-0">
                             <a href="https://projectweborganisasi-tl.vercel.app/" target="_blank" class="bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors">
@@ -401,7 +436,7 @@
 
         // Scroll-spy: highlight active nav link
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav.fixed .nav-link');
+        const navLinks = document.querySelectorAll('nav.fixed .nav-link, #mob-nav-panel a');
 
         function onScroll() {
             let current = 'home';
@@ -419,11 +454,22 @@
         onScroll();
 
         // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .animate-hero');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Restart CSS animation for hero items
+                    if(entry.target.classList.contains('animate-hero')) {
+                        entry.target.style.animation = 'none';
+                        void entry.target.offsetWidth; // trigger reflow
+                        entry.target.style.animation = ''; 
+                    }
+                } else {
+                    entry.target.classList.remove('visible');
+                    if(entry.target.classList.contains('animate-hero')) {
+                        entry.target.style.animation = 'none';
+                    }
                 }
             });
         }, { threshold: 0.15 });
